@@ -1,5 +1,7 @@
 package com.cola.array;
 
+import java.util.Arrays;
+
 public class Array {
 
     private int[] data;
@@ -54,5 +56,33 @@ public class Array {
 
         data[index] = e;
         size++;
+    }
+
+    // 获取index索引位置的元素
+    public int get(int index) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Get failed, Index is Illegal");
+        return data[index];
+    }
+
+    // 修改index索引位置的元素为e
+    public void set(int index, int e) {
+        if (index < 0 || index >= size)
+            throw new IllegalArgumentException("Set failed, Index is Illegal");
+        data[index] = e;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        res.append(String.format("Array: size = %d , capacity = %d\n", size, data.length));
+        res.append('[');
+        for (int i = 0; i < size; i++) {
+            res.append(data[i]);
+            if (i != size - 1)
+                res.append(", ");
+        }
+        res.append(']');
+        return res.toString();
     }
 }
