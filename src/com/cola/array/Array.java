@@ -1,7 +1,5 @@
 package com.cola.array;
 
-import java.util.Arrays;
-
 public class Array<E> {
 
     private E[] data;
@@ -24,7 +22,7 @@ public class Array<E> {
     }
 
     // 获取数组的容量
-    public int capacity() {
+    public int getCapacity() {
         return data.length;
     }
 
@@ -64,6 +62,14 @@ public class Array<E> {
         if (index < 0 || index >= size)
             throw new IllegalArgumentException("Get failed, Index is Illegal");
         return data[index];
+    }
+
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    public E getFirst() {
+        return get(0);
     }
 
     // 修改index索引位置的元素为e
