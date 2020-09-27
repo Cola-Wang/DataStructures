@@ -10,5 +10,14 @@ public class LinkedTest {
         }
         linkedList.add(2, 123);
         System.out.println(linkedList);
+
+        linkedList.remove(2);
+        System.out.println(linkedList);
+
+        linkedList.removeFirst();
+        System.out.println(linkedList);
+
+        linkedList.removeLast();
+        System.out.println(linkedList);
     }
 }
