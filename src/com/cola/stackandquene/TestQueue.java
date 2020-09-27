@@ -1,5 +1,7 @@
 package com.cola.stackandquene;
 
+import com.cola.linked.LinkedListQueue;
+
 import java.util.Random;
 
 public class TestQueue {
@@ -19,7 +21,7 @@ public class TestQueue {
     }
 
     public static void main(String[] args) {
-        int opCount = 1000000;
+        int opCount = 100000;
 
         ArrayQueue<Integer> arrayQueue = new ArrayQueue<>();
         double time1 = testQueue(arrayQueue, opCount);
@@ -28,5 +30,9 @@ public class TestQueue {
         LoopQueue<Integer> loopQueue = new LoopQueue<>();
         double time2 = testQueue(loopQueue, opCount);
         System.out.println(time2);
+
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        double time3 = testQueue(linkedListQueue, opCount);
+        System.out.println(time3);
     }
 }

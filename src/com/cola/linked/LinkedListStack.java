@@ -1,6 +1,5 @@
 package com.cola.linked;
 
-import com.cola.stackandquene.ArrayStack;
 import com.cola.stackandquene.Stack;
 
 public class LinkedListStack<E> implements Stack<E> {
