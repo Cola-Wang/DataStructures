@@ -17,4 +17,13 @@ public class Solution203ByDummyHead {
         }
         return head;
     }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 6, 3, 4, 5, 6};
+        ListNode head = new ListNode(nums);
+        System.out.println(head.toString());
+
+        ListNode res = (new Solution203ByDummyHead()).removeElements(head, 6);
+        System.out.println(res.toString());
+    }
 }
