@@ -2,18 +2,41 @@ package com.cola.recursion;
 
 public class Solution203ByRecursion {
 
-    public ListNode removeElements(ListNode head, int val) {
+    public ListNode removeElements(ListNode head, int val, int depth) {
 
-        if (head == null)
+        String depthString = generateDepthString(depth);
+
+        System.out.print(depthString);
+        System.out.println("Call: remove " + val + " in " + head);
+
+        if (head == null) {
+            System.out.print(depthString);
+            System.out.println("Return: " + head);
             return null;
+        }
 
-        head.next = removeElements(head.next, val);
-        return head.val == val ? head.next : head;
-//        if (head.val == val)
-//            return head.next;
-//        else {
-//            return head;
-//        }
+        ListNode res = removeElements(head.next, val, depth + 1);
+        System.out.print(depthString);
+        System.out.println("After remove " + val + ": " + res);
+        ListNode ret;
+//        return head.val == val ? head.next : head;
+        if (head.val == val)
+            ret = res;
+        else {
+            head.next = res;
+            ret = head;
+        }
+        System.out.print(depthString);
+        System.out.println("Return " + ret);
+        return ret;
+    }
+
+    private String generateDepthString(int depth) {
+        StringBuilder res = new StringBuilder();
+        for (int i = 0; i < depth; i++) {
+            res.append("--");
+        }
+        return res.toString();
     }
 
     public static void main(String[] args) {
@@ -21,7 +44,7 @@ public class Solution203ByRecursion {
         ListNode head = new ListNode(nums);
         System.out.println(head.toString());
 
-        ListNode res = (new Solution203ByRecursion()).removeElements(head, 6);
+        ListNode res = (new Solution203ByRecursion()).removeElements(head, 6, 0);
         System.out.println(res.toString());
     }
 }
