@@ -21,6 +21,9 @@ public class Main {
 
         bst.postOrder();
         System.out.println();
+
+        bst.levelOrder();
+        System.out.println();
 //        System.out.println(bst);
     }
 }
